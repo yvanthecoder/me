@@ -1,5 +1,12 @@
-import { Code2, Briefcase, Brain, Smartphone, Zap, Github, Linkedin, Mail, Terminal, Rocket, ChevronDown, Moon, Sun, Gamepad } from 'lucide-react';
+import { Code2, Brain, Smartphone, Github, Linkedin, Mail, Terminal, Moon, Sun, Gamepad } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { SkillsRadarChart } from './components/SkillsChart';
+import { ExperienceTimeline } from './components/ExperienceTimeline';
+import { ProjectImpactChart } from './components/ProjectStats';
+import { HeroSection } from './components/HeroSection';
+import { ProjectsSection } from './components/ProjectsSection';
+import { AIProjectsSection } from './components/AIProjectsSection';
+import { ExperienceCardsSection } from './components/ExperienceCardsSection';
 
 function App() {
   const [scrollY, setScrollY] = useState(0);
@@ -24,6 +31,7 @@ function App() {
       });
       if (current) setActiveSection(current);
     };
+
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -96,52 +104,8 @@ function App() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section id="hero" className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-slate-50 to-white dark:from-slate-800 dark:to-slate-900">
-        <div className="max-w-5xl mx-auto px-6 text-center pt-20">
-          <div className="inline-block mb-8">
-            <div className="w-24 h-24 bg-slate-900 dark:bg-white rounded-2xl flex items-center justify-center mx-auto shadow-lg">
-              <Code2 className="w-12 h-12 text-white dark:text-slate-900" />
-            </div>
-          </div>
-          <h1 className="text-6xl md:text-7xl font-bold mb-6 text-slate-900 dark:text-white">
-            Yvan Djopa
-          </h1>
-          <p className="text-2xl md:text-3xl text-slate-700 dark:text-slate-300 font-medium mb-4">
-            Software Engineer
-          </p>
-          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mb-8 leading-relaxed">
-            Passionate about building efficient, scalable, and user-friendly applications.
-            I design software, train AI models, and sometimes push machines to their limits — in a good way.
-          </p>
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            <span className="px-4 py-2 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg text-sm font-medium">
-              Node.js
-            </span>
-            <span className="px-4 py-2 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-lg text-sm font-medium">
-              React/Next.js
-            </span>
-            <span className="px-4 py-2 bg-violet-50 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-lg text-sm font-medium">
-              Tensorflow
-            </span>
-            <span className="px-4 py-2 bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 rounded-lg text-sm font-medium">
-              Python
-            </span>
-          </div>
-          <button
-            onClick={() => scrollToSection('contact')}
-            className="px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-xl font-semibold text-lg hover:bg-blue-600 dark:hover:bg-blue-500 transition-colors shadow-lg hover:shadow-xl"
-          >
-            Let's Build Something Awesome
-          </button>
-        </div>
-        <button
-          onClick={() => scrollToSection('about')}
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors"
-        >
-          <ChevronDown className="w-8 h-8" />
-        </button>
-      </section>
+      {/* Hero Section - New Advanced Version */}
+      <HeroSection scrollToSection={scrollToSection} />
 
       {/* About Section */}
       <section id="about" className="py-24 bg-white dark:bg-slate-900">
@@ -155,7 +119,7 @@ function App() {
           <div className="bg-slate-50 dark:bg-slate-800 rounded-3xl p-10 md:p-14 space-y-6 border border-slate-200 dark:border-slate-700">
             <p className="text-xl text-slate-700 dark:text-slate-300 leading-relaxed">
               I'm a Software Engineer with a strong focus on design AI Model, mobile, and web development.
-              Some developers just write code — I build <span className="font-semibold text-slate-900 dark:text-white">enterprise-scale applications</span>,
+              Some developers just write code  I build <span className="font-semibold text-slate-900 dark:text-white">enterprise-scale applications</span>,
               ship <span className="font-semibold text-slate-900 dark:text-white">production-ready freelance projects</span>, train
               <span className="font-semibold text-slate-900 dark:text-white"> medical AI models with 90%+ accuracy</span>,
               and create side projects that reach <span className="font-semibold text-slate-900 dark:text-white">hundreds of users</span>.
@@ -174,357 +138,45 @@ function App() {
         </div>
       </section>
 
-      {/* Experience Section */}
-      <section id="experience" className="py-24 bg-slate-50 dark:bg-slate-800">
-        <div className="max-w-5xl mx-auto px-6">
+      {/* Skills Visualization Section */}
+      <section className="py-24 bg-gradient-to-b from-white to-slate-50 dark:from-slate-900 dark:to-slate-800">
+        <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-              Professional Experience
+              Skills & Expertise
             </h2>
-            <div className="w-20 h-1 bg-blue-600 dark:bg-blue-500 mx-auto rounded-full"></div>
-          </div>
-          <div className="space-y-8">
-            <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 md:p-10 border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-shadow">
-              <div className="flex items-start gap-6">
-                <div className="w-14 h-14 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Briefcase className="w-7 h-7 text-blue-600 dark:text-blue-400" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2"><a href='https://www.3ds.com/fr/products/enovia'>Dassault Systèmes</a></h3> sept 2023 - Currently
-                  <p className="text-lg text-slate-600 dark:text-slate-400 mb-4">Software Engineer (ENOVIA) • Enterprise Scale</p>
-                  <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-                    Contributing the <span className="font-semibold text-slate-900 dark:text-white">Real to Virtuality</span> vision by delivering applications for a global user base.
-                    <span className="font-semibold text-slate-900 dark:text-white"> Responsible for the full development lifecycle</span> from system architecture design
-                    to comprehensive unit testing with over <span className="font-semibold text-emerald-600 dark:text-emerald-400">90%</span> coverage
-                    using (Karma Unit test and Page Object pattern), and deployment to production.
-                    Delivered solutions bridging the physical and digital worlds with
-                    <span className="font-semibold text-blue-600 dark:text-blue-400"> 99.9% uptime</span>.
-                    Collaborated within an <span className="font-semibold text-slate-900 dark:text-white">international, multi-disciplinary team</span>
-                    across three time zones, following Agile/Scrum or cycle V methodology depending the applications we worked on.
-                  </p>
-
-                  <div className="flex flex-wrap gap-2">
-                    <span className="px-3 py-1.5 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg text-sm font-medium">
-                      JavaScript (AMD)
-                    </span>
-                    <span className="px-3 py-1.5 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-lg text-sm font-medium">
-                      TypeScript
-                    </span>
-                    <span className="px-3 py-1.5 bg-violet-50 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-lg text-sm font-medium">
-                      UX Design
-                    </span>
-                    <span className="px-3 py-1.5 bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 rounded-lg text-sm font-medium">
-                      Project Planning
-                    </span>
-                    <span className="px-3 py-1.5 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg text-sm font-medium">
-                      Git/GitLab
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 md:p-10 border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-shadow">
-              <div className="flex items-start gap-6">
-                <div className="w-14 h-14 bg-emerald-100 dark:bg-emerald-900/30 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Rocket className="w-7 h-7 text-emerald-600 dark:text-emerald-400" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2"><a href='https://www.linkedin.com/company/lamatermarket/about/'>La Mater Tech</a></h3> nov 2022 - sept 2023
-                  <p className="text-lg text-slate-600 dark:text-slate-400 mb-4">Intern Developer • Client Projects</p>
-                  <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-                    Contributed as a <span className="font-semibold text-blue-600 dark:text-blue-400">Frontend Developer </span>
-                    in a fully remote team of 3 developers, including 2 senior engineers, on
-                    <span className="font-semibold text-slate-900 dark:text-white"> ScolarBridge </span>
-                    a web platform widely used in France that connects
-                    <span className="font-semibold text-emerald-600 dark:text-emerald-400"> hundreds of students and teachers </span>
-                    each year. Assigned through <span className="font-semibold text-slate-900 dark:text-white">LaMaterTech</span>,
-                    our goal was to deliver a functional, reliable, and user-friendly platform within tight deadlines.
-                    I focused on <span className="font-semibold text-slate-900 dark:text-white">pixel-perfect frontend implementation </span>
-                    using <span className="font-semibold text-blue-600 dark:text-blue-400">Next.js</span> and
-                    <span className="font-semibold text-emerald-600 dark:text-emerald-400"> SCSS</span>,
-                    ensuring a smooth and optimized codebase for a flawless UX.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="px-3 py-1.5 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg text-sm font-medium">
-                      React.js
-                    </span>
-                    <span className="px-3 py-1.5 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-lg text-sm font-medium">
-                      Next.js
-                    </span>
-                    <span className="px-3 py-1.5 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg text-sm font-medium">
-                      Git/GitLab
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 md:p-10 border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-shadow">
-              <div className="flex items-start gap-6">
-                <div className="w-14 h-14 bg-violet-100 dark:bg-violet-900/30 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Zap className="w-7 h-7 text-violet-600 dark:text-violet-400" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2"><a href='https://institutsaintjean.org/'>Univerty Saint Jean</a></h3>Sept 2020 - July 2021
-                  <p className="text-lg text-slate-600 dark:text-slate-400 mb-4">Junior Enterprise • Web Solutions</p>
-                  <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-                    Developed the <span className="font-semibold text-violet-600 dark:text-violet-400">backend of a student management platform</span> for my school using Node.js and Express.
-                    Implemented <span className="font-semibold text-slate-900 dark:text-white">RESTful APIs</span> with full CRUD operations and managed the database with
-                    <span className="font-semibold text-slate-900 dark:text-white"> NeDB</span>, a lightweight alternative to MongoDB.
-                    Ensured reliable data handling and scalability while collaborating with the frontend team to deliver a functional and maintainable system.
-                  </p>
-                  <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-                    Conducted a <span className="font-semibold text-amber-600 dark:text-amber-400">data analysis project on student performance </span>
-                    aimed at identifying risk factors influencing academic success.
-                    Used <span className="font-semibold text-slate-900 dark:text-white"> Pandas</span> to build datasets from Excel files,
-                    <span className="font-semibold text-slate-900 dark:text-white"> NumPy</span> for data cleaning, and
-                    <span className="font-semibold text-slate-900 dark:text-white"> Matplotlib</span> to visualize trends such as
-                    distance from school, living situation, and parental support.
-                    Trained a <span className="font-semibold text-slate-900 dark:text-white">linear regression model with TensorFlow </span>
-                    to predict whether a student is likely to achieve good grades based on these characteristics.
-                    The objective was to support prevention initiatives by identifying students in need of academic guidance.
-                  </p>
-
-                  <div className="flex flex-wrap gap-2">
-                    <span className="px-3 py-1.5 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-lg text-sm font-medium">
-                      Node.js
-                    </span>
-                    <span className="px-3 py-1.5 bg-violet-50 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-lg text-sm font-medium">
-                      Express.js
-                    </span>
-                    <span className="px-3 py-1.5 bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 rounded-lg text-sm font-medium">
-                      NEDB
-                    </span>
-                    <span className="px-3 py-1.5 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg text-sm font-medium">
-                      Tensorflow
-                    </span>
-                    <span className="px-3 py-1.5 bg-violet-50 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-lg text-sm font-medium">
-                      Python
-                    </span>
-                    <span className="px-3 py-1.5 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-lg text-sm font-medium">
-                      Numpy / Matplotlib / Pandas
-                    </span>
-                    <span className="px-3 py-1.5 bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 rounded-lg text-sm font-medium">
-                      DataCleaning / HandleOverfitting
-                    </span>
-                    <span className="px-3 py-1.5 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg text-sm font-medium">
-                      Git/GitLab
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* AI Projects Section */}
-      <section id="ai" className="py-24 bg-white dark:bg-slate-900">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-              AI & Deep Learning
-            </h2>
-            <div className="w-20 h-1 bg-violet-600 dark:bg-violet-500 mx-auto rounded-full"></div>
+            <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-violet-600 mx-auto rounded-full"></div>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-violet-50 dark:bg-violet-900/20 rounded-3xl p-8 border border-violet-200 dark:border-violet-800 hover:shadow-xl transition-shadow">
-              <div className="w-12 h-12 bg-violet-600 dark:bg-violet-500 rounded-xl flex items-center justify-center mb-6">
-                <Brain className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2"><a href='https://github.com/yvanthecoder/AI-skin-cancer-'>Skin Cancer Detection</a></h3>
-              <p className="text-sm text-violet-700 dark:text-violet-300 font-medium mb-4"><a href='https://github.com/yvanthecoder/AI-skin-cancer-'>Open Source • Medical AI</a></p>
-              <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-                Developed a deep learning model for multi-class skin cancer classification.
-                Trained on <span className="font-semibold text-violet-700 dark:text-violet-300">10,000+ labeled images</span>,
-                achieving <span className="font-semibold text-slate-900 dark:text-white">92% test accuracy</span>.
-                Used dropout, L2 regularization, and data augmentation (Zoom-in, rotation, flip) to reduce overfitting.
-                <span className="font-semibold text-blue-600 dark:text-blue-400"><a href='https://github.com/yvanthecoder/AI-skin-cancer-'>Open-sourced</a></span> for contribution and collaboration.
-              </p>
-
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1.5 bg-white dark:bg-slate-800 text-violet-700 dark:text-violet-300 rounded-lg text-sm font-medium border border-violet-200 dark:border-violet-700">
-                  Numpy
-                </span>
-                <span className="px-3 py-1.5 bg-white dark:bg-slate-800 text-violet-700 dark:text-violet-300 rounded-lg text-sm font-medium border border-violet-200 dark:border-violet-700">
-                  Tensorflow
-                </span>
-                <span className="px-3 py-1.5 bg-white dark:bg-slate-800 text-violet-700 dark:text-violet-300 rounded-lg text-sm font-medium border border-violet-200 dark:border-violet-700">
-                  openCV
-                </span>
-                <span className="px-3 py-1.5 bg-white dark:bg-slate-800 text-violet-700 dark:text-violet-300 rounded-lg text-sm font-medium border border-violet-200 dark:border-violet-700">
-                  Tkinter
-                </span>
-              </div>
-            </div>
-
-            <div className="bg-blue-50 dark:bg-blue-900/20 rounded-3xl p-8 border border-blue-200 dark:border-blue-800 hover:shadow-xl transition-shadow">
-              <div className="w-12 h-12 bg-blue-600 dark:bg-blue-500 rounded-xl flex items-center justify-center mb-6">
-                <Brain className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">NLP Training Chatbot</h3>
-              <p className="text-sm text-blue-700 dark:text-blue-300 font-medium mb-4">Dassault Side Project • Internal Tool</p>
-              <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-                Designed and built an NLP-powered chatbot  to simplify training program discovery
-                for <span className="font-semibold text-blue-700 dark:text-blue-300">200+ colleagues</span>.
-                Despite challenges with a small dataset (&lt;500 samples), applied
-                <span className="font-semibold text-slate-900 dark:text-white"> transfer learning and synthetic data generation </span>
-                to reach <span className="font-semibold text-blue-600 dark:text-blue-400">85% intent classification accuracy </span>
-                using an LSTM architecture with dropout and regularization.
-                If adopted, the solution could help colleagues quickly find relevant trainings
-                and reduce HR query response time by
-                <span className="font-semibold text-emerald-600 dark:text-emerald-400"> 60%</span>.
-              </p>
-
-
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1.5 bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-300 rounded-lg text-sm font-medium border border-blue-200 dark:border-blue-700">
-                  NLP
-                </span>
-                <span className="px-3 py-1.5 bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-300 rounded-lg text-sm font-medium border border-blue-200 dark:border-blue-700">
-                  Numpy / pandas / Matplotlib
-                </span>
-                <span className="px-3 py-1.5 bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-300 rounded-lg text-sm font-medium border border-blue-200 dark:border-blue-700">
-                  Tensorflow
-                </span>
-              </div>
+            <SkillsRadarChart />
+            <div className="space-y-6">
+              <ProjectImpactChart />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Projects Section */}
-      <section id="projects" className="py-24 bg-slate-50 dark:bg-slate-800">
+      {/* Experience Section with Timeline - Keep for visual journey */}
+      <section id="experience" className="py-24 bg-white dark:bg-slate-900">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-              Mobile & Web Projects
+              Professional Journey
             </h2>
-            <div className="w-20 h-1 bg-emerald-600 dark:bg-emerald-500 mx-auto rounded-full"></div>
+            <div className="w-20 h-1 bg-slate-900 dark:bg-white mx-auto rounded-full"></div>
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-shadow">
-              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mb-6">
-                <Smartphone className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-              </div>
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">Sport Connect</h3>
-              <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-                Founded a mobile sports networking app, architecting
-                <span className="font-semibold text-blue-600 dark:text-blue-400"> real-time geolocation matching</span>
-                and integrating chat features that allow players to instantly form teams.
-                Leveraged <span className="font-semibold text-slate-900 dark:text-white">Firebase</span> to support
-                <span className="font-semibold text-emerald-600 dark:text-emerald-400"> 30+ beta testers</span>,
-                validating early product-market fit.
-                Achieved <span className="font-semibold text-blue-600 dark:text-blue-400">+90% rate among testers</span> during testing,
-                with the official launch planned for <span className="font-semibold text-slate-900 dark:text-white">Spring 2026</span> on IOS ans Android.
-                Currently <span className="font-semibold text-emerald-600 dark:text-emerald-400">seeking investors</span> to scale growth and adoption.
-              </p>
-
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1.5 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg text-sm font-medium">
-                  React Native
-                </span>
-                <span className="px-3 py-1.5 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-lg text-sm font-medium">
-                  Firebase / Firestore
-                </span>
-                <span className="px-3 py-1.5 bg-violet-50 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-lg text-sm font-medium">
-                  Expo
-                </span>
-              </div>
-            </div>
-
-            <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-shadow">
-              <div className="w-12 h-12 bg-violet-100 dark:bg-violet-900/30 rounded-xl flex items-center justify-center mb-6">
-                <Code2 className="w-6 h-6 text-violet-600 dark:text-violet-400" />
-              </div>
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3"><a href='https://github.com/yvanthecoder/LePhoenix'>LePhénix</a></h3>
-              <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-                Developed an educational <b><a href='https://github.com/yvanthecoder/LePhoenix'>Open-sourced</a></b> website to support my preparatory class, providing access to
-                <span className="font-semibold text-blue-600 dark:text-blue-400"> course materials</span>,
-                <span className="font-semibold text-emerald-600 dark:text-emerald-400"> practical exercises</span>,
-                and <span className="font-semibold text-violet-600 dark:text-violet-400">past exam papers</span>.
-                The platform helped <span className="font-semibold text-slate-900 dark:text-white">50+ students </span>
-                improve their academic performance.
-                To make learning more engaging, I also built
-                <span className="font-semibold text-blue-600 dark:text-blue-400">interactive quiz games </span>
-                where students could challenge each other while reinforcing key concepts.
-                Implemented primarily with <span className="font-semibold text-slate-900 dark:text-white">JavaScript, HTML, and CSS</span>.
-                Content was manually curated and uploaded by me, without a backend system.
-              </p>
-
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1.5 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg text-sm font-medium">
-                  HTML5 / SCSS
-                </span>
-                <span className="px-3 py-1.5 bg-violet-50 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-lg text-sm font-medium">
-                  JavaScript
-                </span>
-              </div>
-            </div>
-
-            <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-shadow">
-              <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-xl flex items-center justify-center mb-6">
-                <Smartphone className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-              </div>
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3"><a href='note-moi.vercel.app'>Note-Moi</a></h3>
-              <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-                Co-developed a lighthearted rating <b><a href='https://github.com/yvanthecoder/Note-moi'>Open-sourced </a></b>app with two classmates, allowing users to evaluate friends
-                across various criteria such as <span className="font-semibold text-blue-600 dark:text-blue-400">intellect</span>,
-                <span className="font-semibold text-emerald-600 dark:text-emerald-400"> creativity</span>, or
-                <span className="font-semibold text-violet-600 dark:text-violet-400"> personality</span>.
-                Acted as <span className="font-semibold text-slate-900 dark:text-white">project lead</span>,
-                coordinating both the technical and organizational aspects, and performing regular code reviews.
-                Built with <span className="font-semibold text-slate-900 dark:text-white">Next.js</span> and
-                <span className="font-semibold text-slate-900 dark:text-white">Firebase/Firestore</span>.
-                The app reached <span className="font-semibold text-emerald-600 dark:text-emerald-400">100+ active users on launch day </span>
-                and quickly grew to <span className="font-semibold text-blue-600 dark:text-blue-400">300+ registered users</span>.
-              </p>
-
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1.5 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-lg text-sm font-medium">
-                  Firebase / Firestore
-                </span>
-                <span className="px-3 py-1.5 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg text-sm font-medium">
-                  Next.js
-                </span>
-                <span className="px-3 py-1.5 bg-violet-50 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-lg text-sm font-medium">
-                  Git / Github
-                </span>
-              </div>
-            </div>
-
-
-
-            <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-shadow">
-              <div className="w-12 h-12 bg-amber-100 dark:bg-amber-900/30 rounded-xl flex items-center justify-center mb-6">
-                <Terminal className="w-6 h-6 text-amber-600 dark:text-amber-400" />
-              </div>
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3"><a href='https://github.com/yvanthecoder/ARWM'>ARWM WhatsApp Bot</a></h3>
-              <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-                Developed a <b><a href='https://github.com/yvanthecoder/ARWM'>Open-sourced </a></b><span className="font-semibold text-blue-600 dark:text-blue-400">personal WhatsApp automation tool </span>
-                to manage the large volume of messages I received from students I was mentoring in development.
-                Since manually replying became unmanageable (and delegation was not an option), I built a system with
-                <span className="font-semibold text-slate-900 dark:text-white">Python, PyAutoGUI, Pynput, and NLP-based classification</span>.
-                The program ran <span className="font-semibold text-emerald-600 dark:text-emerald-400">24/7</span> on a dedicated desktop machine
-                and achieved outstanding accuracy in automatically providing relevant responses.
-              </p>
-
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1.5 bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 rounded-lg text-sm font-medium">
-                  Data creation
-                </span>
-                <span className="px-3 py-1.5 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg text-sm font-medium">
-                  Tensorflow
-                </span>
-                <span className="px-3 py-1.5 bg-violet-50 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-lg text-sm font-medium">
-                  PyAutoGUI
-                </span>
-              </div>
-            </div>
-          </div>
+          <ExperienceTimeline />
         </div>
       </section>
+
+      {/* Experience Cards - New Design with Metrics */}
+      <ExperienceCardsSection />
+
+      {/* AI Projects Section - New Card Design */}
+      <AIProjectsSection />
+
+      {/* Projects Section - New Advanced Version */}
+      <ProjectsSection />
       <section id="academical-projects" className="py-24 bg-slate-50 dark:bg-slate-800">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-16">
@@ -576,7 +228,7 @@ function App() {
               </div>
               <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3"><a href='https://eseo-groupe5.vercel.app'>Travel Booking Web App</a></h3>
               <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-                Built an <span className="font-semibold text-blue-600 dark:text-blue-400">academic group project <a href='https://github.com/yvanthecoder/travel-agency'>Open-Sourced</a></span> —
+                Built an <span className="font-semibold text-blue-600 dark:text-blue-400">academic group project <a href='https://github.com/yvanthecoder/travel-agency'>Open-Sourced</a></span> 
                 a full-stack web application for booking and managing trips.
                 I worked primarily on the <span className="font-semibold text-slate-900 dark:text-white">backend (Node.js/Express)</span>,
                 implementing the REST API, validation with Joi, and centralized error handling.
