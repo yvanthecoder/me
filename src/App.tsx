@@ -118,21 +118,10 @@ function App() {
           </div>
           <div className="bg-slate-50 dark:bg-slate-800 rounded-3xl p-10 md:p-14 space-y-6 border border-slate-200 dark:border-slate-700">
             <p className="text-xl text-slate-700 dark:text-slate-300 leading-relaxed">
-              I'm a Software Engineer with a strong focus on design AI Model, mobile, and web development.
-              Some developers just write code  I build <span className="font-semibold text-slate-900 dark:text-white">enterprise-scale applications</span>,
-              ship <span className="font-semibold text-slate-900 dark:text-white">production-ready freelance projects</span>, train
-              <span className="font-semibold text-slate-900 dark:text-white"> medical AI models with 90%+ accuracy</span>,
-              and create side projects that reach <span className="font-semibold text-slate-900 dark:text-white">hundreds of users</span>.
+              Software Engineer building <span className="font-semibold text-slate-900 dark:text-white">enterprise applications</span> at Dassault Systèmes and creating <span className="font-semibold text-slate-900 dark:text-white">AI models with ~90% accuracy</span>.
             </p>
             <p className="text-xl text-slate-700 dark:text-slate-300 leading-relaxed">
-              My tech stack spans <span className="font-semibold text-blue-600 dark:text-blue-400">HTML/CSS/JavaScript/TypeScript</span>,
-              <span className="font-semibold text-emerald-600 dark:text-emerald-400"> ReactNative/Next.js/Node.js</span>,
-              <span className="font-semibold text-violet-600 dark:text-violet-400"> Python for Machine Learning (Numpy, Pandas, Matplotlib, ...) & Tensorflow</span>,
-              and everything in between. I've optimized apps to handle thousands of concurrent users,
-              reduced load times by 30%+, and maintained 99%+ uptime in production.
-            </p>
-            <p className="text-xl text-slate-700 dark:text-slate-300 leading-relaxed">
-              Currently working as an <span className="font-semibold text-slate-900 dark:text-white">Apprentice Software Engineer</span> at <span className="font-semibold text-slate-900 dark:text-white">Dassault Systèmes</span> since September 2023, collaborating with an international team. I am strengthening both my technical expertise (JavaScript, TypeScript, system design) and my teamwork and organizational skills.
+              Full-stack and eating <span className="font-semibold text-slate-900 dark:text-white">JavaScript/TypeScript, React/Next.js, Node.js, and Python/TensorFlow</span> for the dinner. Delivered solutions reaching thousands of users with 99%+ uptime.
             </p>
           </div>
         </div>
@@ -187,132 +176,58 @@ function App() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-shadow">
-              <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-xl flex items-center justify-center mb-6">
-                <Brain className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+            <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-shadow">
+              <div className="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-xl flex items-center justify-center mb-4">
+                <Brain className="w-6 h-6 text-slate-900 dark:text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3"><a href='https://github.com/yvanthecoder/DeepLearning-from-scratch'>Deep Learning from Scratch</a></h3>
-              <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-                Developed a <span className="font-semibold text-blue-600 dark:text-blue-400">deep learning model from scratch</span>
-                without high-level frameworks. The project aimed to classify whether a plant was
-                <span className="font-semibold text-emerald-600 dark:text-emerald-400">toxic or non-toxic</span>
-                based on two parameters: <span className="font-semibold text-slate-900 dark:text-white">leaf length (X1)</span>
-                and <span className="font-semibold text-slate-900 dark:text-white">leaf width (X2)</span>.
-                Built a <span className="font-semibold text-violet-600 dark:text-violet-400">binary neural network classifier</span>,
-                implemented <span className="font-semibold text-slate-900 dark:text-white">gradient descent optimization</span>,
-                and evaluated errors using the <span className="font-semibold text-slate-900 dark:text-white">log-loss cost function</span>
-                to iteratively adjust weights (w) and bias (b).
-                This project was a strong exercise in applying <span className="font-semibold text-blue-600 dark:text-blue-400">mathematics and Numpy</span>
-                to understand the foundations of machine learning beyond libraries.
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2"><a href='https://github.com/yvanthecoder/DeepLearning-from-scratch'>Deep Learning from Scratch</a></h3>
+              <p className="text-slate-700 dark:text-slate-300 mb-4">
+                Binary neural network classifier for plant toxicity from scratch using gradient descent
               </p>
-
               <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1.5 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-lg text-sm font-medium">
-                  Linear Algebra
-                </span>
-                <span className="px-3 py-1.5 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg text-sm font-medium">
-                  Probability
-                </span>
-                <span className="px-3 py-1.5 bg-violet-50 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-lg text-sm font-medium">
-                  Gradient Descent
-                </span>
-                <span className="px-3 py-1.5 bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 rounded-lg text-sm font-medium">
-                  Numpy / sklearn / Matplotlib
-                </span>
+                <span className="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-xs font-medium">Numpy</span>
+                <span className="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-xs font-medium">Math</span>
               </div>
             </div>
 
-            <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-shadow">
-              <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/30 rounded-xl flex items-center justify-center mb-6">
-                <Code2 className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+            <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-shadow">
+              <div className="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-xl flex items-center justify-center mb-4">
+                <Code2 className="w-6 h-6 text-slate-900 dark:text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3"><a href='https://eseo-groupe5.vercel.app'>Travel Booking Web App</a></h3>
-              <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-                Built an <span className="font-semibold text-blue-600 dark:text-blue-400">academic group project <a href='https://github.com/yvanthecoder/travel-agency'>Open-Sourced</a></span> 
-                a full-stack web application for booking and managing trips.
-                I worked primarily on the <span className="font-semibold text-slate-900 dark:text-white">backend (Node.js/Express)</span>,
-                implementing the REST API, validation with Joi, and centralized error handling.
-                A teammate handled the <span className="font-semibold text-emerald-600 dark:text-emerald-400">frontend (React.js/Next.js)</span>
-                with a modern responsive UI, while another focused on
-                <span className="font-semibold text-violet-600 dark:text-violet-400">database design (NeDB) and UX conception</span>.
-                We collaborated using <span className="font-semibold text-slate-900 dark:text-white">Notion</span> for task tracking
-                and <span className="font-semibold text-slate-900 dark:text-white">Git/GitHub</span> for version control.
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2"><a href='https://eseo-groupe5.vercel.app'>Travel Booking Platform</a></h3>
+              <p className="text-slate-700 dark:text-slate-300 mb-4">
+                Full-stack travel booking app with REST API, team collaboration via Git & Notion
               </p>
-
               <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1.5 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg text-sm font-medium">
-                  Node.js / Express
-                </span>
-                <span className="px-3 py-1.5 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-lg text-sm font-medium">
-                  REST API / Joi
-                </span>
-                <span className="px-3 py-1.5 bg-violet-50 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-lg text-sm font-medium">
-                  NeDB
-                </span>
-                <span className="px-3 py-1.5 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-lg text-sm font-medium">
-                  Git / Notion
-                </span>
+                <span className="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-xs font-medium">Node.js</span>
+                <span className="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-xs font-medium">React</span>
               </div>
             </div>
-            <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-shadow">
-              <div className="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-xl flex items-center justify-center mb-6">
-                <Smartphone className="w-6 h-6 text-red-600 dark:text-red-400" />
+            <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-shadow">
+              <div className="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-xl flex items-center justify-center mb-4">
+                <Smartphone className="w-6 h-6 text-slate-900 dark:text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3"><a href='https://github.com/yvanthecoder/Djopflix'>DjopFlix</a></h3>
-              <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-                Co-developed an <span className="font-semibold text-blue-600 dark:text-blue-400">Android mobile application</span>
-                in <span className="font-semibold text-slate-900 dark:text-white">Kotlin</span> with a team of four.
-                The app displays a catalog of movies via an <span className="font-semibold text-emerald-600 dark:text-emerald-400">API call</span>,
-                allowing users to view details such as the <span className="font-semibold text-violet-600 dark:text-violet-400">synopsis</span>
-                by clicking on a film.
-                I focused on the <span className="font-semibold text-slate-900 dark:text-white">frontend implementation</span>,
-                ensuring a clean, responsive interface and smooth user experience.
-                This project was a valuable opportunity to work with a <span className="font-semibold text-blue-600 dark:text-blue-400">native mobile language</span>
-                and gain hands-on experience in Android development with Kotlin.
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2"><a href='https://github.com/yvanthecoder/Djopflix'>DjopFlix</a></h3>
+              <p className="text-slate-700 dark:text-slate-300 mb-4">
+                Android movie catalog app with API integration, built with Kotlin
               </p>
-
               <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1.5 bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-300 rounded-lg text-sm font-medium">
-                  Kotlin / Android
-                </span>
-                <span className="px-3 py-1.5 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg text-sm font-medium">
-                  API Integration
-                </span>
-                <span className="px-3 py-1.5 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-lg text-sm font-medium">
-                  UX Design
-                </span>
-                <span className="px-3 py-1.5 bg-violet-50 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-lg text-sm font-medium">
-                  Git / Github
-                </span>
+                <span className="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-xs font-medium">Kotlin</span>
+                <span className="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-xs font-medium">Android</span>
               </div>
             </div>
 
-            <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-shadow">
-              <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/30 rounded-xl flex items-center justify-center mb-6">
-                <Gamepad className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+            <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-shadow">
+              <div className="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-xl flex items-center justify-center mb-4">
+                <Gamepad className="w-6 h-6 text-slate-900 dark:text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">Multiplayer Tetris</h3>
-              <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-                In a team of two, we developed a complete <span className="font-semibold text-blue-600 dark:text-blue-400"><a href='https://github.com/yvanthecoder/projet_python_ESEO'>Tetris</a></span>
-                in <span className="font-semibold text-slate-900 dark:text-white">Python</span>, supporting
-                <span className="font-semibold text-emerald-600 dark:text-emerald-400"> 2 to 4 players in multiplayer mode</span>.
-                I was responsible for the <span className="font-semibold text-violet-600 dark:text-violet-400">network layer</span>,
-                implementing communication between players using <span className="font-semibold text-slate-900 dark:text-white">PySockets</span>
-                and handling <span className="font-semibold text-slate-900 dark:text-white">multi-threading</span> to ensure smooth real-time interactions.
-                This project strengthened my skills in <span className="font-semibold text-blue-600 dark:text-blue-400">concurrent programming</span>
-                and <span className="font-semibold text-emerald-600 dark:text-emerald-400">network protocols</span>.
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2"><a href='https://github.com/yvanthecoder/projet_python_ESEO'>Multiplayer Tetris</a></h3>
+              <p className="text-slate-700 dark:text-slate-300 mb-4">
+                2-4 player Tetris with network layer, sockets, and multi-threading in Python
               </p>
-
               <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1.5 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-lg text-sm font-medium">
-                  POO Python
-                </span>
-                <span className="px-3 py-1.5 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg text-sm font-medium">
-                  PySockets
-                </span>
-                <span className="px-3 py-1.5 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-lg text-sm font-medium">
-                  Multi-threading
-                </span>
+                <span className="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-xs font-medium">Python</span>
+                <span className="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-xs font-medium">Sockets</span>
               </div>
             </div>
 
