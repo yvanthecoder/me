@@ -1,8 +1,22 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Brain, Activity } from 'lucide-react';
+import { Brain, Activity, Gamepad2, ExternalLink } from 'lucide-react';
 import { useRef } from 'react';
 
 const aiProjects = [
+  {
+    icon: Gamepad2,
+    name: 'Chess AI Bot',
+    company: 'Personal Project',
+    description: 'Improving an existing chess AI bot using Alpha-Beta Pruning and Big O notation instead of the casual Minimax algorithms it allows the bot to evaluate deeper moves in less time, making it more competitive against human players.',
+    stats: [
+      { label: 'Time Complexity', value: 'O(b^(d/2)) instead of O(b^d)' },
+      { label: 'Space Complexity', value: 'O(bd) instead of O(b^d)' },
+      { label: 'ELO', value: '~1500 instead of 600' }
+    ],
+    tech: ['Alpha-Beta Pruning', 'PST', 'JavaScript'],
+    color: 'violet',
+    link: 'https://chess-ai-peach.vercel.app/'
+  },
   {
     icon: Brain,
     name: 'Skin Cancer Detection',
@@ -72,13 +86,28 @@ function AIProjectCard({ project, index }: { project: typeof aiProjects[0]; inde
       className="relative h-full"
     >
       <motion.div
-        className={`bg-gradient-to-br ${colors.card} rounded-3xl p-8 border-2 ${colors.border} shadow-xl h-full flex flex-col`}
+        className={`bg-gradient-to-br ${colors.card} rounded-3xl p-8 border-2 ${colors.border} shadow-xl h-full flex flex-col ${project.link ? 'cursor-pointer' : ''}`}
         whileHover={{
           scale: 1.02,
           boxShadow: "0 20px 40px rgba(0,0,0,0.15)"
         }}
         transition={{ duration: 0.3 }}
       >
+        {/* Click indicator badge */}
+        {project.link && (
+          <motion.div
+            className="absolute top-4 right-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-3 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 shadow-lg"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false }}
+            transition={{ delay: 0.3 }}
+            whileHover={{ scale: 1.05 }}
+          >
+            <span>Click to view</span>
+            <ExternalLink className="w-3 h-3" />
+          </motion.div>
+        )}
+
         {/* Icon */}
         <motion.div
           className={`w-16 h-16 ${colors.icon} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}

@@ -9,9 +9,10 @@ const experiences = [
     role: 'Software Engineer',
     period: 'Sept 2023 - Present',
     type: 'Full-time',
+    link: 'https://www.3ds.com',
     description: 'Contributing the Real to Virtuality vision by delivering applications for a global user base. Responsible for the full development lifecycle from system architecture design to comprehensive unit testing and deployment to production working in an international team (France, India, England)',
     metrics: [
-      { label: 'Users', value: 100, max: 100, unit: '+', display: '20000'  },
+      { label: 'Users', value: 100, max: 100, unit: '+', display: '+20000'  },
       { label: 'Minimal Coverage required', value: 95, max: 100, unit: '%' },
       { label: 'Impact', value: 100, max: 100, unit: '%', display: 'world' }
     ],
@@ -24,9 +25,10 @@ const experiences = [
     role: 'Full-Stack Developer',
     period: 'Feb 2023 - Jun 2023',
     type: 'Internship',
+    link: null,
     description: 'DContributed as a Frontend Developer in a fully remote team of 3 developers, including 2 senior engineers, on ScolarBridge a web platform widely used in France that connects hundreds of students and teachers each year',
     metrics: [
-      { label: 'Performance', value: 95, max: 100, unit: '%' },
+      { label: 'Performance', value: 90, max: 100, unit: '%', display: 'Pixel Perfect' },
       { label: 'Features', value: 100, max: 100, unit: '%', display: 'Complete' },
       { label: 'Delivery', value: 100, max: 100, unit: '%', display: 'On-time' }
     ],
@@ -35,15 +37,16 @@ const experiences = [
   },
   {
     icon: GraduationCap,
-    company: 'Université Saint-Jean',
+    company: 'Saint-Jean',
     role: 'IT Consultant & "Teacher"',
     period: 'Dec 2021 - Sept 2023',
     type: 'Part-time',
+    link: 'https://institutsaintjean.org/',
     description: 'Developed the backend of a student management platform for my school using Node.js and Express. Implemented RESTful APIs with full CRUD operations and managed the database with NeDB',
     metrics: [
       { label: 'Students', value: 100, max: 100, unit: '+', display: '300+' },
       { label: 'Satisfaction', value: 100, max: 100, unit: '%' },
-      { label: 'Impact', value: 100, max: 100, unit: '%', display: 'All the university' }
+      { label: 'Impact', value: 100, max: 100, unit: '%', display: 'All the school' }
     ],
     tech: ['React JS', 'Node Js', 'NoSQL Databases', 'Projett Management', 'Teaching'],
     color: 'violet'
@@ -116,7 +119,13 @@ function ExperienceCard({ experience, index }: { experience: typeof experiences[
 
           <div className="flex-grow">
             <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1">
-              {experience.company}
+              {experience.link ? (
+                <a href={experience.link} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  {experience.company}
+                </a>
+              ) : (
+                experience.company
+              )}
             </h3>
             <p className="text-base font-semibold text-slate-700 dark:text-slate-300 mb-1">
               {experience.role}

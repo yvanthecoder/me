@@ -118,7 +118,7 @@ function App() {
           </div>
           <div className="bg-slate-50 dark:bg-slate-800 rounded-3xl p-10 md:p-14 space-y-6 border border-slate-200 dark:border-slate-700">
             <p className="text-xl text-slate-700 dark:text-slate-300 leading-relaxed">
-              Software Engineer building <span className="font-semibold text-slate-900 dark:text-white">enterprise applications</span> at Dassault Systèmes and creating <span className="font-semibold text-slate-900 dark:text-white">AI models with ~90% accuracy</span>.
+              Software Engineer building <span className="font-semibold text-slate-900 dark:text-white">enterprise applications</span> at <a href="https://www.3ds.com" target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-600 dark:text-blue-400 hover:underline">Dassault Systèmes</a> and creating <span className="font-semibold text-slate-900 dark:text-white">AI models with ~90% accuracy</span>.
             </p>
             <p className="text-xl text-slate-700 dark:text-slate-300 leading-relaxed">
               Full-stack and eating <span className="font-semibold text-slate-900 dark:text-white">JavaScript/TypeScript, React/Next.js, Node.js, and Python/TensorFlow</span> for the dinner. Delivered solutions reaching thousands of users with 99%+ uptime.
@@ -170,7 +170,7 @@ function App() {
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-              Academical Projects
+              Academical Projects at <a href="https://eseo.fr" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">ESEO</a>
             </h2>
             <div className="w-20 h-1 bg-emerald-600 dark:bg-emerald-500 mx-auto rounded-full"></div>
           </div>
@@ -296,7 +296,7 @@ function App() {
       {/* Footer */}
       <footer className="py-8 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800">
         <div className="max-w-6xl mx-auto px-6 text-center text-slate-600 dark:text-slate-400">
-          <p>© 2025 Yvan Djopa. Built with Vite.js and the relentless encouragement of my upstairs neighbor shouting “don’t stop, keep going!”.</p>
+          <p>© 2025 Yvan Djopa. Built with Vite.js and the relentless encouragement of my upstairs neighbor.</p>
         </div>
       </footer>
     </div>

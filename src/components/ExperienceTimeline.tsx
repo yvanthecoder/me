@@ -8,10 +8,11 @@ const experiences = [
     role: 'Software Engineer (ENOVIA)',
     icon: Briefcase,
     color: 'blue',
+    link: 'https://www.3ds.com',
     achievements: [
-      '99.9% uptime in production',
-      '90%+ test coverage',
-      'Enterprise-scale applications'
+      'Building app used by 20K+ users',
+      '95%+ test coverage',
+      'World impact projects'
     ]
   },
   {
@@ -20,22 +21,23 @@ const experiences = [
     role: 'Frontend Developer',
     icon: Rocket,
     color: 'emerald',
+    link: null,
     achievements: [
-      'Hundreds of users served',
+      'Big O evaluation tool',
       'Pixel-perfect implementation',
-      'Remote team collaboration'
+      'Maintenance & updates applications used by 100+ users'
     ]
   },
   {
-    company: 'University Saint Jean',
+    company: 'Saint Jean',
     period: 'Sept 2020 - July 2021',
     role: 'Junior Enterprise',
     icon: Zap,
     color: 'violet',
+    link: 'https://institutsaintjean.org/',
     achievements: [
-      'REST API development',
-      '92% model accuracy',
-      'Data analysis & ML'
+      'Building application used by +300 students',
+      'Helping students in their projects'
     ]
   }
 ];
@@ -98,7 +100,13 @@ export function ExperienceTimeline() {
                 <div className="flex items-start justify-between mb-3">
                   <div>
                     <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
-                      {exp.company}
+                      {exp.link ? (
+                        <a href={exp.link} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                          {exp.company}
+                        </a>
+                      ) : (
+                        exp.company
+                      )}
                     </h3>
                     <p className={`text-sm font-semibold ${colors.text} mt-1`}>
                       {exp.role}

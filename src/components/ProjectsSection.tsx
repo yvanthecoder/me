@@ -1,16 +1,17 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Smartphone, Code2, Terminal } from 'lucide-react';
+import { Smartphone, Code2, Terminal, ExternalLink } from 'lucide-react';
 import { useRef } from 'react';
 
 const projects = [
   {
     icon: Smartphone,
-    name: 'Sport Connect',
+    name: 'Sport Connect (Private)',
     description: 'Mobile sports networking app with real-time geolocation matching',
     stats: ['30+ beta testers', '90% satisfaction', 'Spring 2026 launch'],
     tech: ['React Native', 'Firebase', 'Expo'],
     color: 'blue',
-    gradient: 'from-blue-500 to-cyan-500'
+    gradient: 'from-blue-500 to-cyan-500',
+    link: null 
   },
   {
     icon: Code2,
@@ -19,7 +20,8 @@ const projects = [
     stats: ['50+ students', 'Open Source', 'Quiz Games'],
     tech: ['HTML5/SCSS', 'JavaScript'],
     color: 'violet',
-    gradient: 'from-violet-500 to-purple-500'
+    gradient: 'from-violet-500 to-purple-500',
+    link: 'https://le-phoenix.vercel.app' 
   },
   {
     icon: Smartphone,
@@ -28,7 +30,8 @@ const projects = [
     stats: ['300+ users', '100+ on launch', 'Open Source'],
     tech: ['Next.js', 'Firebase'],
     color: 'emerald',
-    gradient: 'from-emerald-500 to-teal-500'
+    gradient: 'from-emerald-500 to-teal-500',
+    link: 'https://note-moi.vercel.app/' 
   },
   {
     icon: Terminal,
@@ -37,7 +40,8 @@ const projects = [
     stats: ['24/7 running', 'High accuracy', 'Open Source'],
     tech: ['Python', 'TensorFlow', 'PyAutoGUI'],
     color: 'amber',
-    gradient: 'from-amber-500 to-orange-500'
+    gradient: 'from-amber-500 to-orange-500',
+    link: 'https://github.com/yvanthecoder/ARWM'
   }
 ];
 
@@ -83,14 +87,14 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
   const Icon = project.icon;
   const colors = colorClasses[project.color as keyof typeof colorClasses];
 
-  return (
+  const CardContent = (
     <motion.div
       ref={ref}
       style={{ y, opacity, scale, rotateY, transformStyle: "preserve-3d" }}
-      className="relative"
+      className="relative h-full"
     >
       <motion.div
-        className={`bg-gradient-to-br ${colors.card} rounded-3xl p-8 border-2 ${colors.border} shadow-xl relative overflow-hidden`}
+        className={`bg-gradient-to-br ${colors.card} rounded-3xl p-8 border-2 ${colors.border} shadow-xl relative overflow-hidden h-full flex flex-col ${project.link ? 'cursor-pointer' : ''}`}
         whileHover={{
           scale: 1.05,
           rotateY: 5,
@@ -99,6 +103,21 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
         }}
         transition={{ duration: 0.4 }}
       >
+        {/* Click indicator badge */}
+        {project.link && (
+          <motion.div
+            className="absolute top-4 right-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-3 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 shadow-lg z-20"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false }}
+            transition={{ delay: 0.3 }}
+            whileHover={{ scale: 1.05 }}
+          >
+            <span>Click to view</span>
+            <ExternalLink className="w-3 h-3" />
+          </motion.div>
+        )}
+
         {/* Animated background gradient */}
         <motion.div
           className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0`}
@@ -187,6 +206,16 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
       </motion.div>
     </motion.div>
   );
+
+  if (project.link) {
+    return (
+      <a href={project.link} target="_blank" rel="noopener noreferrer" className="block h-full">
+        {CardContent}
+      </a>
+    );
+  }
+
+  return CardContent;
 }
 
 export function ProjectsSection() {
