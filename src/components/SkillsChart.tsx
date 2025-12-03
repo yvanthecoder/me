@@ -13,14 +13,14 @@ const skillsData = [
 export function SkillsRadarChart() {
   return (
     <motion.div
-      className="w-full h-[400px] bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-800 dark:to-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-700"
+      className="w-full h-[350px] sm:h-[400px] bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-800 dark:to-slate-900 rounded-3xl p-4 sm:p-8 border border-slate-200 dark:border-slate-700"
       initial={{ opacity: 0, scale: 0.8 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: false, amount: 0.3 }}
       transition={{ duration: 0.8 }}
       whileHover={{ scale: 1.02 }}
     >
-      <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 text-center">
+      <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6 text-center">
         Technical Skills
       </h3>
       <ResponsiveContainer width="100%" height="100%">
@@ -31,7 +31,7 @@ export function SkillsRadarChart() {
           />
           <PolarAngleAxis
             dataKey="skill"
-            tick={{ fill: '#64748b', fontSize: 12 }}
+            tick={{ fill: '#64748b', fontSize: 10 }}
           />
           <PolarRadiusAxis
             angle={90}
@@ -52,7 +52,8 @@ export function SkillsRadarChart() {
               backgroundColor: 'rgba(15, 23, 42, 0.9)',
               border: 'none',
               borderRadius: '12px',
-              color: '#fff'
+              color: '#fff',
+              fontSize: '12px'
             }}
           />
         </RadarChart>

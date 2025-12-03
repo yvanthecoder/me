@@ -9,9 +9,9 @@ const aiProjects = [
     company: 'Personal Project',
     description: 'Improving an existing chess AI bot using Alpha-Beta Pruning and Big O notation instead of the casual Minimax algorithms it allows the bot to evaluate deeper moves in less time, making it more competitive against human players.',
     stats: [
-      { label: 'Time Complexity', value: 'O(b^(d/2)) instead of O(b^d)' },
-      { label: 'Space Complexity', value: 'O(bd) instead of O(b^d)' },
-      { label: 'ELO', value: '~1500 instead of 600' }
+      { label: 'Time Complexity', value: 'O(b^d/2)' },
+      { label: 'Space Complexity', value: 'O(bd)' },
+      { label: 'ELO', value: '+1500' }
     ],
     tech: ['Alpha-Beta Pruning', 'PST', 'JavaScript'],
     color: 'violet',

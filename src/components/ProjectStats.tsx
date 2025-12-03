@@ -17,28 +17,29 @@ const aiStats = [
 export function ProjectImpactChart() {
   return (
     <motion.div
-      className="w-full bg-gradient-to-br from-white to-blue-50 dark:from-slate-800 dark:to-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-700"
+      className="w-full bg-gradient-to-br from-white to-blue-50 dark:from-slate-800 dark:to-slate-900 rounded-3xl p-4 sm:p-8 border border-slate-200 dark:border-slate-700"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.3 }}
       transition={{ duration: 0.8 }}
       whileHover={{ scale: 1.01 }}
     >
-      <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">
+      <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6">
         Project Impact & Reach
       </h3>
-      <ResponsiveContainer width="100%" height={300}>
+      <ResponsiveContainer width="100%" height={280}>
         <BarChart data={projectsData}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
           <XAxis
             dataKey="name"
-            tick={{ fill: '#64748b', fontSize: 12 }}
-            angle={-15}
+            tick={{ fill: '#64748b', fontSize: 10 }}
+            angle={-20}
             textAnchor="end"
+            height={60}
           />
           <YAxis
-            tick={{ fill: '#64748b' }}
-            label={{ value: 'Users', angle: -90, position: 'insideLeft', fill: '#64748b' }}
+            tick={{ fill: '#64748b', fontSize: 10 }}
+            label={{ value: 'Users', angle: -90, position: 'insideLeft', fill: '#64748b', fontSize: 12 }}
           />
           <Tooltip
             contentStyle={{
@@ -46,7 +47,8 @@ export function ProjectImpactChart() {
               border: 'none',
               borderRadius: '12px',
               color: '#fff',
-              padding: '12px'
+              padding: '8px',
+              fontSize: '12px'
             }}
             cursor={{ fill: 'rgba(59, 130, 246, 0.1)' }}
           />
@@ -64,17 +66,17 @@ export function ProjectImpactChart() {
 export function AIAccuracyChart() {
   return (
     <motion.div
-      className="w-full bg-gradient-to-br from-violet-50 to-white dark:from-violet-900/20 dark:to-slate-900 rounded-3xl p-8 border border-violet-200 dark:border-violet-800"
+      className="w-full bg-gradient-to-br from-violet-50 to-white dark:from-violet-900/20 dark:to-slate-900 rounded-3xl p-4 sm:p-8 border border-violet-200 dark:border-violet-800"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.3 }}
       transition={{ duration: 0.8, delay: 0.2 }}
       whileHover={{ scale: 1.01 }}
     >
-      <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">
+      <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6">
         AI Model Accuracy
       </h3>
-      <div className="space-y-6">
+      <div className="space-y-4 sm:space-y-6">
         {aiStats.map((stat, index) => (
           <motion.div
             key={stat.name}
@@ -86,18 +88,18 @@ export function AIAccuracyChart() {
           >
             <div className="flex items-center justify-between">
               <div>
-                <p className="font-semibold text-slate-900 dark:text-white">
+                <p className="text-sm sm:text-base font-semibold text-slate-900 dark:text-white">
                   {stat.name}
                 </p>
-                <p className="text-sm text-slate-600 dark:text-slate-400">
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
                   {stat.type}
                 </p>
               </div>
-              <span className="text-2xl font-bold text-violet-600 dark:text-violet-400">
+              <span className="text-xl sm:text-2xl font-bold text-violet-600 dark:text-violet-400">
                 {stat.accuracy}%
               </span>
             </div>
-            <div className="relative h-3 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+            <div className="relative h-2 sm:h-3 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
               <motion.div
                 className="absolute inset-y-0 left-0 bg-gradient-to-r from-violet-500 to-purple-600 rounded-full"
                 initial={{ width: 0 }}
