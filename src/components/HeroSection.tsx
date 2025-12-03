@@ -156,7 +156,7 @@ export function HeroSection({ scrollToSection }: HeroSectionProps) {
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <TypeWriter
-            words={['Software Engineer', 'Passionate', 'Math Lover', 'Spiderman']}
+            words={['Software Engineer', "I'm playin' basketball as hobby", 'I love Chess, Math and philosophy', 'Messi is the best football/soccer player ever']}
             className="text-3xl md:text-4xl text-slate-900 dark:text-white font-bold"
           />
         </motion.div>
